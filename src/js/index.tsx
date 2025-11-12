@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const apiKey = process.env.GEMINI_API_KEY;
+
 // キャラクターデータの型定義 (TypeScript環境のため)
 interface CharacterStats {
     health: number;
