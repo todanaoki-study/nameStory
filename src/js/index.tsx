@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // キャラクターデータの型定義 (TypeScript環境のため)
 interface CharacterStats {
