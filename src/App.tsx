@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './scss/style.min.css'
 
 //必要ページのインポート
-import Name from './js/index.jsx'
+import Name from './js/index.tsx'
 
 function App() {
   const [count, setCount] = useState(0)
