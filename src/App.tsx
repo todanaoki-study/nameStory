@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import React from 'react'
 import './scss/style.min.css'
 
 //必要ページのインポート
@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <h2>環境チェック</h2>
-
       <Name></Name>
     </div>
   )
