@@ -109,9 +109,37 @@
 // }
 
 // export default Name;
+import React from "react";
+import Btn from "../components/btn";
 
-function Name() {
-    return <div>環境チェックOK</div>;
+
+interface StartScreenProps {
+    setGameState: (state: 'title' | 'inputName' | 'story' | 'ending') => void;
 }
 
-export default Name;
+
+const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
+
+    const handleStart = () => {
+        setGameState("inputName");
+    }
+
+    return (
+        <section className="startScreen">
+            <div className="startScreen__inner">
+                <h2 className="startScreen__title">
+                    <img src="./src/assets/logo/logo.png" alt="ロゴ画像。ネムストというゲーム名の背景に魔導書や歯車、巻物が置いてある。" />
+                </h2>
+
+                <Btn onClick={handleStart} className="startScreen__startBtn">スタート</Btn>
+
+                <div className="startScreen__btnContainer">
+                    <Btn>図鑑</Btn>
+                    <Btn>設定</Btn>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default StartScreen;
