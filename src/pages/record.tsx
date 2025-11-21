@@ -15,6 +15,8 @@ const Record: React.FC<RecordProps> = ({ setGameState }) => {
             <div className="record__inner">
                 <div className="record__container">
                     <PhotoFrame></PhotoFrame>
+
+                    <Btn onClick={handleBackToTitle}>戻る（仮）</Btn>
                 </div>
             </div>
         </div>

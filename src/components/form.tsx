@@ -12,7 +12,7 @@ function Form({ className = "", children, placeholder, ...rest }: FormProps & Re
         combinedClass = `${baseClass} ${className} `
     }
     return (
-        <label className={combinedClass} htmlFor="">
+        <label className={combinedClass} {...rest}>
             <input type="text" placeholder={placeholder} />
         </label>
     );

@@ -7,7 +7,7 @@ import InputName from './pages/inputName.tsx'
 import Record from './pages/record.tsx';
 
 //必要コンポーネントのインポート
-import Btn from './components/btn.tsx'
+// import Btn from './components/btn.tsx'
 import Header from './components/header.tsx'
 import Footer from './components/footer.tsx'
 
