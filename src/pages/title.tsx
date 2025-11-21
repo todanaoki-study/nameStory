@@ -120,8 +120,18 @@ interface StartScreenProps {
 
 const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
 
-    const handleStart = () => {
-        setGameState("inputName");
+    const handleStart = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const id = e.currentTarget.id;
+        switch (id) {
+            case "startBtn":
+                setGameState("inputName");
+                break;
+            case "recordBtn":
+                setGameState("story");
+                break;
+            default:
+                setGameState("title");
+        }
     }
 
     return (
@@ -131,14 +141,14 @@ const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
                     <img src="./src/assets/logo/logo.png" alt="ロゴ画像。ネムストというゲーム名の背景に魔導書や歯車、巻物が置いてある。" />
                 </h2>
 
-                <Btn onClick={handleStart} className="startScreen__startBtn">スタート</Btn>
+                <Btn onClick={handleStart} className="startScreen__startBtn" id="startBtn">スタート</Btn>
 
                 <div className="startScreen__btnContainer">
-                    <Btn>図鑑</Btn>
+                    <Btn onClick={handleStart} id="recordBtn">図鑑</Btn>
                     <Btn>設定</Btn>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

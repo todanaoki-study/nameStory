@@ -21,6 +21,8 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                     例:田中太郎、ごんざれす田中など、思いついた名を自由に記入しよう！
                 </p>
                 <Form placeholder="名前を入力"></Form>
+
+
                 <Btn onClick={handleBackToTitle}>戻る(仮置き)</Btn>
             </div>
         </div>

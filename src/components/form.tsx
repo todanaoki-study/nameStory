@@ -1,16 +1,19 @@
 interface FormProps {
-    placeholder?: string;
     class?: string;
+    placeholder?: string;
+    children?: React.ReactNode;
 }
 
-function Form(props: FormProps) {
-    const placeholder = props.placeholder;
+function Form({ className = "", children, placeholder, ...rest }: FormProps & React.ComponentPropsWithoutRef<'label'>) {
 
     const baseClass = "form";
-    const combinedClass = `${baseClass} `
+    let combinedClass = `${baseClass}`
+    if (className != "") {
+        combinedClass = `${baseClass} ${className} `
+    }
     return (
-        <label className="form" htmlFor="">
-            <input className="form__content" type="text" placeholder={placeholder} />
+        <label className={combinedClass} htmlFor="">
+            <input type="text" placeholder={placeholder} />
         </label>
     );
 }

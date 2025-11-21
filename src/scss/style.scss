@@ -127,11 +127,21 @@ $breakpoints: (
 
 //*Form
 .form {
-    background: $formColor;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 30px;
     padding: 5px 10px;
+    background: $formColor;
     text-align: center;
     border: 1px solid #000000;
     border-radius: 7px;
+
+
+
+
+    & input::placeholder {
+        opacity: .7;
+    }
 }
 
 
@@ -173,7 +183,7 @@ body {
 
     &__inner {
         @include mix-inner();
-        @include mix-centerPos(25%, 50%);
+        @include mix-centerPos(40%, 50%);
     }
 
     &__title {

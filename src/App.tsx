@@ -4,6 +4,7 @@ import './scss/style.min.css'
 //必要ページのインポート
 import StartScreen from './pages/title.tsx'
 import InputName from './pages/inputName.tsx'
+import Record from './pages/record.tsx';
 
 //必要コンポーネントのインポート
 import Btn from './components/btn.tsx'
@@ -25,6 +26,8 @@ const App: React.FC = () => {
         return <StartScreen setGameState={setGameState} />;
       case "inputName":
         return <InputName setGameState={setGameState} />;
+      case "story":
+        return <Record setGameState={setGameState}></Record>
       default:
         return <StartScreen setGameState={setGameState} />;
     }
