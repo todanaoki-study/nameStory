@@ -12,13 +12,27 @@ const Record: React.FC<RecordProps> = ({ setGameState }) => {
 
     return (
         <div className="record">
-            <div className="record__inner">
-                <div className="record__container">
-                    <PhotoFrame></PhotoFrame>
+            <div className="record__container">
 
-                    <Btn onClick={handleBackToTitle}>戻る（仮）</Btn>
+                <div className="record__book">
+                    <div className="record__inner">
+                        <div className="record__list">
+                            {/* firebaseにデータがある分だけ */}
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame></PhotoFrame>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <Btn className="record__btn" onClick={handleBackToTitle}>戻る（仮）</Btn>
+
         </div>
     )
 }

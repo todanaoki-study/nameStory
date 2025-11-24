@@ -136,13 +136,16 @@ $breakpoints: (
     border: 1px solid #000000;
     border-radius: 7px;
 
-
-
-
     & input::placeholder {
         opacity: .7;
     }
 }
+
+.photoFrame {
+    display: block;
+    width: 30%;
+}
+
 
 
 //page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -203,3 +206,36 @@ body {
 }
 
 //*story
+
+//*record
+
+.record {
+    padding-top: 120px;
+
+    &__container {
+        background: $mainColor;
+        display: block;
+        padding: 10px 0px 10px 10px;
+    }
+
+    &__book {
+        background: url(../assets/item/paper.png);
+        margin-left: auto;
+    }
+
+    &__inner {
+        width: 90%;
+        padding-right: 10px;
+        margin-left: auto;
+    }
+
+    &__list {
+        @include mix-flex();
+        padding: 30px 0;
+    }
+
+    &__btn {
+        margin-top: 50px;
+        margin-left: auto;
+    }
+}

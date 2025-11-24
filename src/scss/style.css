@@ -92,6 +92,11 @@
   opacity: 0.7;
 }
 
+.photoFrame {
+  display: block;
+  width: 30%;
+}
+
 body {
   background: #F8F4E6;
 }
@@ -154,5 +159,34 @@ body {
   text-align: center;
   font-size: 14px;
   margin-bottom: 45px;
+}
+
+.record {
+  padding-top: 120px;
+}
+.record__container {
+  background: #875647;
+  display: block;
+  padding: 10px 0px 10px 10px;
+}
+.record__book {
+  background: url(../assets/item/paper.png);
+  margin-left: auto;
+}
+.record__inner {
+  width: 90%;
+  padding-right: 10px;
+  margin-left: auto;
+}
+.record__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+.record__btn {
+  margin-top: 50px;
+  margin-left: auto;
 }
 /*# sourceMappingURL=style.css.map */

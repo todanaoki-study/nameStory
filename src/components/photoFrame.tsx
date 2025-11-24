@@ -1,11 +1,13 @@
-// interface PhotoFrameProps {
-//     props?: string;
-//     img?: string;
-// }
+import React from "react";
 
-function PhotoFrame() {
+interface PhotoFrameProps {
+    class?: string;
+    children?: React.ReactNode;
+}
+
+function PhotoFrame({ className = "", children, ...rest }: PhotoFrameProps & React.ComponentPropsWithoutRef<'article'>) {
     return (
-        <article>
+        <article className="photoFrame" {...rest}>
             <img src="https://placehold.jp/150x150.png" alt="" />
             <p>田中太郎</p>
         </article>
