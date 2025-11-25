@@ -3,7 +3,7 @@
 import Btn from "../components/btn";
 
 interface GeneratingProps {
-    setGameState: (state: "title" | "inputName" | "generating" | "CharacterSheet" | "story" | "ending" | "record" | "targetLog") => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
 //通信中の画面

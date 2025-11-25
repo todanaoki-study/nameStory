@@ -2,7 +2,7 @@ import Btn from "../components/btn";
 import Personality from "../components/personality";
 
 interface MyCharacterSheetProps {
-    setGameState: (state: "title" | "inputName" | "generating" | "CharacterSheet" | "story" | "ending" | "record" | "targetLog") => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
 const MyCharacterSheet: React.FC<MyCharacterSheetProps> = ({ setGameState }) => {

@@ -5,7 +5,7 @@ import StoryBox from '../components/storyBox';
 import Personality from '../components/personality';
 
 interface InputNameProps {
-    setGameState: (state: "title" | "inputName" | "story" | "ending") => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
 const TargetLog: React.FC<InputNameProps> = ({ setGameState }) => {

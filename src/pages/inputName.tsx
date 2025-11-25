@@ -6,7 +6,7 @@ import Form from "../components/form";
 
 
 interface InputNameProps {
-    setGameState: (state: "title" | "inputName" | "generating" | "story" | "ending" | "record" | "targetLog") => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
 const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {

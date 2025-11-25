@@ -2,7 +2,7 @@ import PhotoFrame from "../components/photoFrame";
 import Btn from "../components/btn";
 
 interface RecordProps {
-    setGameState: (state: "title" | "inputName" | "story" | "ending" | "record" | "targetLog") => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
 const Record: React.FC<RecordProps> = ({ setGameState }) => {
