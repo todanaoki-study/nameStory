@@ -4,13 +4,24 @@ import React from "react";
 import Btn from "../components/btn";
 import Form from "../components/form";
 
+
 interface InputNameProps {
-    setGameState: (state: "title" | "inputName" | "story" | "ending") => void;
+    setGameState: (state: "title" | "inputName" | "generating" | "story" | "ending" | "record" | "targetLog") => void;
 }
 
 const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
-    const handleBackToTitle = () => {
-        setGameState("title");
+    const handleBackToTitle = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const id = e.currentTarget.id;
+        switch (id) {
+            case "back":
+                setGameState("title");
+                break;
+            case "generate":
+                setGameState("generating");
+                break;
+            default:
+                setGameState("title");
+        }
     };
 
     return (
@@ -22,8 +33,8 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 </p>
                 <Form placeholder="名前を入力"></Form>
 
-
-                <Btn onClick={handleBackToTitle}>戻る(仮置き)</Btn>
+                <Btn onClick={handleBackToTitle} id="back">戻る(仮置き)</Btn>
+                <Btn onClick={handleBackToTitle} id="generate">キャラを生成</Btn>
             </div>
         </div>
     )

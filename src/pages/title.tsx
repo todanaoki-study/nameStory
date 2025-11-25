@@ -114,7 +114,7 @@ import Btn from "../components/btn";
 
 
 interface StartScreenProps {
-    setGameState: (state: 'title' | 'inputName' | 'story' | 'ending') => void;
+    setGameState: (state: 'title' | 'inputName' | "generating" | 'story' | 'ending' | "record" | "targetLog") => void;
 }
 
 
@@ -127,7 +127,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
                 setGameState("inputName");
                 break;
             case "recordBtn":
-                setGameState("story");
+                setGameState("record");
                 break;
             default:
                 setGameState("title");

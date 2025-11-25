@@ -6,10 +6,14 @@ interface PhotoFrameProps {
 }
 
 function PhotoFrame({ className = "", children, ...rest }: PhotoFrameProps & React.ComponentPropsWithoutRef<'article'>) {
+
+    const baseClass = "photoFrame";
+    const combinedClass = `${baseClass} ${className}`;
+
     return (
-        <article className="photoFrame" {...rest}>
-            <img src="https://placehold.jp/150x150.png" alt="" />
-            <p>田中太郎</p>
+        <article className={combinedClass} {...rest}>
+            <img className="photoFrame__img" src="https://placehold.jp/150x150.png" alt="" />
+            <p className="photoFrame__title">田中太郎</p>
         </article>
     );
 }

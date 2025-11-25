@@ -8,7 +8,7 @@ $mainColor: #875647;
 $subColor: #00DADA;
 $rgbBlack: rgba($color: #000000, $alpha: .4);
 $formColor: #EFEFEF;
-$annoColor: #909090;
+$attentionColor: #909090;
 //テスター用
 $dummyColor: #D9D9D9;
 
@@ -141,14 +141,63 @@ $breakpoints: (
     }
 }
 
+//*PhotoFrame
 .photoFrame {
     display: block;
     width: 30%;
+
+    &__title {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 18px;
+    }
 }
 
+//*StoryBox
+.storyBox {
+    background: $formColor;
+    border: 2px solid $mainColor;
+    padding: 10px;
+    border-radius: 7px;
 
+    &__text {
+        color: $attentionColor;
+    }
+}
+
+//*Personality
+.personality {
+    border: 1px solid $mainColor;
+    border-radius: 7px;
+    display: block;
+    width: 100%;
+    background: #fff;
+
+    &__content {
+        @include mix-flex(flex-start, flex-start);
+        gap: 10px;
+        padding: 10px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $mainColor;
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
 
 //page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//startScreen(タイトル画面)
+//inputName(名前入力画面)
+//generating(通信中の画面)
+//myCharacterSheet(自分の生成したキャラの確認画面)
+//story(プレイ画面)
+//record(図鑑画面)
+//targetLog(図鑑詳細画面)
+
 body {
     background: $baseColor;
 }
@@ -198,18 +247,131 @@ body {
 
     &__advice {
         font-weight: bold;
-        color: $annoColor;
+        color: $attentionColor;
         text-align: center;
         font-size: 14px;
         margin-bottom: 45px;
     }
 }
 
-//*story
+//*Generating
+.generating {
+    &__inner {
+        padding-top: 120px;
+        @include mix-inner();
+    }
+}
 
-//*record
+//*MyCharacterSheet
+.myCharacterSheet {
+    padding-top: 120px;
 
+    &__inner {
+        @include mix-inner();
+    }
+
+    &__report {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    &__uniqueWord {
+        font-size: 12px;
+        color: $attentionColor;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__basicInfo {
+        @include mix-flex(flex-start);
+        margin: 30px 0 50px;
+    }
+
+    &__content {
+        margin-top: 15px;
+    }
+
+    &__list {
+        @include mix-flex(flex-start, flex-start);
+    }
+
+    &__tag {
+        font-weight: bold;
+        margin-right: 15px;
+    }
+
+    &__btn {
+        margin-top: 50px;
+    }
+}
+
+//*Story
+.story {
+    padding-top: 120px;
+
+    &__inner {
+        @include mix-inner();
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    &__btn {
+        margin-top: 60px;
+    }
+}
+
+//*Result
+.result {
+    padding-top: 120px;
+
+    &__inner {
+        @include mix-inner();
+    }
+
+    &__report {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    &__title {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    &__uniqueWord {
+        text-align: center;
+        color: $attentionColor;
+    }
+
+    &__btn {
+        display: block;
+        margin: 50px auto 30px;
+    }
+
+    &__prompt {
+        color: $attentionColor;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+//*Record
 .record {
+    //todo背景色のスタイリングは.recordと.targetLogで同じなので、片方変えたらもう片方も変更する
     padding-top: 120px;
 
     &__container {
@@ -237,5 +399,61 @@ body {
     &__btn {
         margin-top: 50px;
         margin-left: auto;
+    }
+}
+
+//*targetLog
+.targetLog {
+    //todo背景色のスタイリングは.recordと.targetLogで同じなので、片方変えたらもう片方も変更する
+    padding-top: 120px;
+
+    &__container {
+        background: $mainColor;
+        display: block;
+        padding: 10px 0px 10px 10px;
+    }
+
+    &__book {
+        background: url(../assets/item/paper.png);
+        margin-left: auto;
+    }
+
+    &__inner {
+        width: 90%;
+        padding-right: 10px;
+        margin-left: auto;
+    }
+
+    &__list {
+        @include mix-flex();
+        padding: 30px 0;
+    }
+
+    &__photoFrame {
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 30px auto 20px;
+    }
+
+    &__storyBox {
+        margin-top: 30px;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__prompt {
+        color: $attentionColor;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    &__personality {
+        margin-top: 20px;
     }
 }

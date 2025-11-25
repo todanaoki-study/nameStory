@@ -96,6 +96,44 @@
   display: block;
   width: 30%;
 }
+.photoFrame__title {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.storyBox {
+  background: #EFEFEF;
+  border: 2px solid #875647;
+  padding: 10px;
+  border-radius: 7px;
+}
+.storyBox__text {
+  color: #909090;
+}
+
+.personality {
+  border: 1px solid #875647;
+  border-radius: 7px;
+  display: block;
+  width: 100%;
+  background: #fff;
+}
+.personality__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+.personality__content:not(:last-child) {
+  border-bottom: 1px solid #875647;
+}
+.personality__title {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 body {
   background: #F8F4E6;
@@ -161,6 +199,115 @@ body {
   margin-bottom: 45px;
 }
 
+.generating__inner {
+  padding-top: 120px;
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.myCharacterSheet {
+  padding-top: 120px;
+}
+.myCharacterSheet__inner {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myCharacterSheet__report {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.myCharacterSheet__uniqueWord {
+  font-size: 12px;
+  color: #909090;
+  font-weight: bold;
+  text-align: center;
+}
+.myCharacterSheet__basicInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 30px 0 50px;
+}
+.myCharacterSheet__content {
+  margin-top: 15px;
+}
+.myCharacterSheet__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.myCharacterSheet__tag {
+  font-weight: bold;
+  margin-right: 15px;
+}
+.myCharacterSheet__btn {
+  margin-top: 50px;
+}
+
+.story {
+  padding-top: 120px;
+}
+.story__inner {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.story__img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.story__btn {
+  margin-top: 60px;
+}
+
+.result {
+  padding-top: 120px;
+}
+.result__inner {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.result__report {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.result__img {
+  display: block;
+  margin: 0 auto 20px;
+}
+.result__title {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.result__uniqueWord {
+  text-align: center;
+  color: #909090;
+}
+.result__btn {
+  display: block;
+  margin: 50px auto 30px;
+}
+.result__prompt {
+  color: #909090;
+  text-align: center;
+  font-weight: bold;
+}
+
 .record {
   padding-top: 120px;
 }
@@ -188,5 +335,53 @@ body {
 .record__btn {
   margin-top: 50px;
   margin-left: auto;
+}
+
+.targetLog {
+  padding-top: 120px;
+}
+.targetLog__container {
+  background: #875647;
+  display: block;
+  padding: 10px 0px 10px 10px;
+}
+.targetLog__book {
+  background: url(../assets/item/paper.png);
+  margin-left: auto;
+}
+.targetLog__inner {
+  width: 90%;
+  padding-right: 10px;
+  margin-left: auto;
+}
+.targetLog__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+.targetLog__photoFrame {
+  margin: 0 auto;
+}
+.targetLog__title {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 30px auto 20px;
+}
+.targetLog__storyBox {
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.targetLog__prompt {
+  color: #909090;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.targetLog__personality {
+  margin-top: 20px;
 }
 /*# sourceMappingURL=style.css.map */

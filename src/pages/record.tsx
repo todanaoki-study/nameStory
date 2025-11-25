@@ -2,12 +2,16 @@ import PhotoFrame from "../components/photoFrame";
 import Btn from "../components/btn";
 
 interface RecordProps {
-    setGameState: (state: "title" | "inputName" | "story" | "ending") => void;
+    setGameState: (state: "title" | "inputName" | "story" | "ending" | "record" | "targetLog") => void;
 }
 
 const Record: React.FC<RecordProps> = ({ setGameState }) => {
     const handleBackToTitle = () => {
         setGameState("title");
+    };
+
+    const goToTarget = () => {
+        setGameState("targetLog");
     };
 
     return (
@@ -18,7 +22,7 @@ const Record: React.FC<RecordProps> = ({ setGameState }) => {
                     <div className="record__inner">
                         <div className="record__list">
                             {/* firebaseにデータがある分だけ */}
-                            <PhotoFrame></PhotoFrame>
+                            <PhotoFrame onClick={goToTarget}></PhotoFrame>
                             <PhotoFrame></PhotoFrame>
                             <PhotoFrame></PhotoFrame>
                             <PhotoFrame></PhotoFrame>
@@ -32,7 +36,6 @@ const Record: React.FC<RecordProps> = ({ setGameState }) => {
                 </div>
             </div>
             <Btn className="record__btn" onClick={handleBackToTitle}>戻る（仮）</Btn>
-
         </div>
     )
 }
