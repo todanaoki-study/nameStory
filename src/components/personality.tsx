@@ -7,7 +7,8 @@ interface PersonalityProps {
     onClick?: () => void;
 }
 
-const Personality: React.FC<PersonalityProps> = ({ currentText, isTyping = false, className = '', onClick }) => {
+//todo-isTyping=falseが入っていた
+const Personality: React.FC<PersonalityProps> = ({ currentText, className = '', onClick }) => {
 
     const baseClass = "personality";
     const combinedClassName = `${baseClass} ${className}`;

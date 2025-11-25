@@ -7,7 +7,8 @@ interface StoryBoxProps {
     onClick?: () => void;
 }
 
-const StoryBox: React.FC<StoryBoxProps> = ({ currentText, isTyping = false, className = '', onClick }) => {
+//todo-isTyping=falseが入っていた
+const StoryBox: React.FC<StoryBoxProps> = ({ currentText, className = '', onClick }) => {
 
     const baseClass = "storyBox";
     const combinedClassName = `${baseClass} ${className}`;
