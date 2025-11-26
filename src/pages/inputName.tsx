@@ -39,7 +39,7 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
             setResult(data);
         } catch (error) {
             console.error("Error:", error);
-            setResult({ error: true });
+            // setResult({ error: true });
         }
     };
 
@@ -53,7 +53,7 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 <Form placeholder="名前を入力"></Form>
 
                 <Btn onClick={handleBackToTitle} id="back">戻る(仮置き)</Btn>
-                <Btn onClick={handleBackToTitle} id="generate">キャラを生成</Btn>
+                <Btn onClick={handleGenerate} id="generate">キャラを生成</Btn>
             </div>
         </div>
     )
