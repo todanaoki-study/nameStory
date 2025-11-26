@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: "Name is required" });
     }
 
-    const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    const API_KEY = process.env.googleApi;
     const genAI = new GoogleGenerativeAI(API_KEY);
 
     const prompt = `
