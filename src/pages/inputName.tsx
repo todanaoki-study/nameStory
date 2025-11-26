@@ -9,6 +9,14 @@ interface InputNameProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
 
+interface CharacterResult {
+    health: number;
+    attack: number;
+    defense: number;
+    personality: string;
+    abilities: string;
+}
+
 const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
     const handleBackToTitle = (e: React.MouseEvent<HTMLButtonElement>) => {
         const id = e.currentTarget.id;
@@ -25,7 +33,7 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
     };
 
     const [name, setName] = useState("");
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState<CharacterResult | null>(null);
 
     const handleGenerate = async () => {
         try {
@@ -39,7 +47,6 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
             setResult(data);
         } catch (error) {
             console.error("Error:", error);
-            // setResult({ error: true });
         }
     };
 
@@ -52,10 +59,29 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 </p>
                 <Form placeholder="名前を入力"></Form>
 
+                <input
+                    type="text"
+                    placeholder="テスト名前を入力"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+
                 <Btn onClick={handleBackToTitle} id="back">戻る(仮置き)</Btn>
                 <Btn onClick={handleGenerate} id="generate">キャラを生成</Btn>
+
+                {result && (
+                    <div>
+                        <h2>{name}</h2>
+                        <p>体力: {result.health}</p>
+                        <p>攻撃力: {result.attack}</p>
+                        <p>防御力: {result.defense}</p>
+                        <p>性格: {result.personality}</p>
+                        <p>能力: {result.abilities}</p>
+                    </div>
+                )}
+
             </div>
-        </div>
+        </div >
     )
 }
 
