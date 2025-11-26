@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //必要コンポーネントをインポート
 import Btn from "../components/btn";
@@ -21,6 +21,25 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 break;
             default:
                 setGameState("title");
+        }
+    };
+
+    const [name, setName] = useState("");
+    const [result, setResult] = useState(null);
+
+    const handleGenerate = async () => {
+        try {
+            const res = await fetch("/api/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name }),
+            });
+
+            const data = await res.json();
+            setResult(data);
+        } catch (error) {
+            console.error("Error:", error);
+            setResult({ error: true });
         }
     };
 

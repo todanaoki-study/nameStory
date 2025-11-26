@@ -13,7 +13,7 @@ function Form({ className = "", children, placeholder, ...rest }: FormProps & Re
     }
     return (
         <label className={combinedClass} {...rest}>
-            <input type="text" placeholder={placeholder} />
+            <input type="text" id="formText" placeholder={placeholder} />
         </label>
     );
 }
