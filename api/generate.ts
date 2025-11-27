@@ -11,8 +11,13 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: "Name is required" });
     }
 
-    const API_KEY = process.env.geminiApi!;
+    // 本番環境用
+    const API_KEY = process.env.GEMINI_API_KEY!;
     const genAI = new GoogleGenerativeAI(API_KEY);
+
+    //ローカル用
+    // const API_KEY = process.env.GEMINI_API_KEY!;
+    // const genAI = new GoogleGenerativeAI(API_KEY);
 
     const prompt = `
   以下の名前の印象から、架空の生物のステータスと性格と一つの特殊能力をJSON形式で生成してください。
@@ -21,6 +26,7 @@ export default async function handler(req, res) {
   `;
 
     try {
+        console.log("API CALLED:name=", name);
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(prompt);
         const responseText = result.response.text();
@@ -30,6 +36,6 @@ export default async function handler(req, res) {
         return res.status(200).json(data);
     } catch (error) {
         console.error("ERROR:", error);
-        return res.status(500).json({ message: "Internal Server Error" });
+        return res.status(500).json({ message: "Server error", error: String(error) });
     }
 }

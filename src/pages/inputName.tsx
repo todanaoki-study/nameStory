@@ -43,7 +43,13 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 body: JSON.stringify({ name }),
             });
 
+            if (!res.ok) {
+                console.error("API ERROR:", res.status);
+                return;
+            }
+
             const data = await res.json();
+            console.log("RECEIVED:", data);
             setResult(data);
         } catch (error) {
             console.error("Error:", error);
