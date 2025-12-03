@@ -16,7 +16,8 @@ if (!API_KEY) {
 const genAI = new GoogleGenAI({ apiKey: API_KEY });
 
 const app = express();
-const port = 3000;
+//!本番時はコメントアウト
+// const port = 3000;
 
 // JSON形式のリクエストボディを解析するミドルウェア
 app.use(express.json());
@@ -89,6 +90,10 @@ app.post('/generate', async (req, res) => {
 });
 
 // サーバーを起動
-app.listen(port, () => {
-    console.log(`[INFO] サーバーが http://localhost:${port} で起動しました。`);
-});
+//!本番時はコメントアウト
+// app.listen(port, () => {
+//     console.log(`[INFO] サーバーが http://localhost:${port} で起動しました。`);
+// });
+
+//!本番時はコメント解除
+export default app;
