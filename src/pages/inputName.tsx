@@ -45,7 +45,11 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
 
         try {
             // サーバーのURL。ローカルで実行している場合は http://localhost:3000 を使用
-            const API_URL = "http://localhost:3000/generate";
+
+            //!ローカル
+            // const API_URL = "http://localhost:3000/generate";
+            //!本番
+            const API_URL = "/generate";
 
             // fetchリクエスト
             const res = await fetch(API_URL, {
