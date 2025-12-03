@@ -36,23 +36,42 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
     const [result, setResult] = useState<CharacterResult | null>(null);
 
     const handleGenerate = async () => {
+        if (!name.trim()) {
+            alert("名前を入力してください。"); // UI上の通知に置き換えるべきだが、一時的に利用
+            return;
+        }
+
+        setGameState("generating"); // ステータスを「生成中」に遷移
+
         try {
-            const res = await fetch("http://localhost:3000/api/generate", {
+            // サーバーのURL。ローカルで実行している場合は http://localhost:3000 を使用
+            const API_URL = "http://localhost:3000/generate";
+
+            // fetchリクエスト
+            const res = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name }),
             });
 
             if (!res.ok) {
-                console.error("API ERROR:", res.status);
-                return;
+                const errorBody = await res.json();
+                console.error("API ERROR:", res.status, errorBody);
+                throw new Error(`APIリクエスト失敗: ${res.status}`);
             }
 
+            /** @type {CharacterResult} */
             const data = await res.json();
-            console.log("RECEIVED:", data);
+            console.log("RECEIVED DATA:", data);
+
             setResult(data);
+            // setGameState("CharacterSheet"); // 生成完了後、キャラシート画面へ
+
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error during character generation:", error);
+            // エラーが発生したら入力画面に戻す
+            setGameState("inputName");
+            alert("キャラクターの生成中にエラーが発生しました。コンソールを確認してください。");
         }
     };
 
