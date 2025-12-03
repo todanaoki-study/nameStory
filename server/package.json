@@ -1,0 +1,9 @@
+{
+    "name": "deta",
+    "version": "0.0.0",
+    "type": "module",
+    "dependencies": {
+        "@google/genai": "^1.30.0",
+        "express": "^5.1.0"
+    }
+}
