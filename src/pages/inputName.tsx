@@ -37,7 +37,7 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
 
     const handleGenerate = async () => {
         try {
-            const res = await fetch("/api/generate", {
+            const res = await fetch("http://localhost:3000/api/generate", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name }),
