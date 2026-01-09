@@ -1,21 +1,19 @@
+import React from 'react';
+
 interface FormProps {
-    class?: string;
+    type?: "password" | "email" | "number" | "text";
     placeholder?: string;
-    children?: React.ReactNode;
+    value: string;
+    onChange: (value: string) => void;
 }
 
-function Form({ className = "", children, placeholder, ...rest }: FormProps & React.ComponentPropsWithoutRef<'label'>) {
-
-    const baseClass = "form";
-    let combinedClass = `${baseClass}`
-    if (className != "") {
-        combinedClass = `${baseClass} ${className} `
-    }
+function Form({ type = "text", placeholder = "", value = "", onChange }: FormProps) {
     return (
-        <label className={combinedClass} {...rest}>
-            <input type="text" id="formText" placeholder={placeholder} />
+        <label className='form' htmlFor="">
+            <input type={type} id="formText" placeholder={placeholder}
+                value={value} onChange={(e) => onChange && onChange(e.target.value)} />
         </label>
-    );
+    )
 }
 
 export default Form;

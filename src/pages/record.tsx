@@ -1,6 +1,8 @@
 import PhotoFrame from "../components/photoFrame";
 import Btn from "../components/btn";
 
+import type { StoryData } from "../types/story";
+
 interface RecordProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
 }
@@ -17,7 +19,6 @@ const Record: React.FC<RecordProps> = ({ setGameState }) => {
     return (
         <div className="record">
             <div className="record__container">
-
                 <div className="record__book">
                     <div className="record__inner">
                         <div className="record__list">

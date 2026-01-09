@@ -172,6 +172,7 @@ $breakpoints: (
     display: block;
     width: 100%;
     background: #fff;
+    margin-bottom: 20px;
 
     &__content {
         @include mix-flex(flex-start, flex-start);
@@ -200,6 +201,7 @@ $breakpoints: (
 
 body {
     background: $baseColor;
+    font-family: "Yusei Magic", sans-serif;
 }
 
 //*startScreen
@@ -259,6 +261,23 @@ body {
     &__inner {
         padding-top: 120px;
         @include mix-inner();
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    &__overview {
+        text-align: center;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
     }
 }
 

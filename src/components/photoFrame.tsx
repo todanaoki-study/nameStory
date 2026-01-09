@@ -13,7 +13,7 @@ function PhotoFrame({ className = "", children, ...rest }: PhotoFrameProps & Rea
     return (
         <article className={combinedClass} {...rest}>
             <img className="photoFrame__img" src="https://placehold.jp/150x150.png" alt="" />
-            <p className="photoFrame__title">田中太郎</p>
+            <p className="photoFrame__title">???</p>
         </article>
     );
 }

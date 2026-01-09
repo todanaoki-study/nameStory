@@ -1,14 +1,15 @@
 import React from 'react';
 
 interface PersonalityProps {
-    currentText: string;
+    personalityText: string;
+    abilitiesText: string;
     isTyping?: boolean;
     className?: string;
     onClick?: () => void;
 }
 
 //todo-isTyping=falseが入っていた
-const Personality: React.FC<PersonalityProps> = ({ currentText, className = '', onClick }) => {
+const Personality: React.FC<PersonalityProps> = ({ personalityText, abilitiesText, className = '', onClick }) => {
 
     const baseClass = "personality";
     const combinedClassName = `${baseClass} ${className}`;
@@ -18,20 +19,13 @@ const Personality: React.FC<PersonalityProps> = ({ currentText, className = '', 
 
             <dl className='personality__content'>
                 <dt className='personality__title'>性格 :</dt>
-                <dd className='personality__text'>{currentText}</dd>
+                <dd className='personality__text'>{personalityText}</dd>
             </dl>
 
             <dl className='personality__content'>
                 <dt className='personality__title'>特徴 :</dt>
-                <dd className='personality__text'>{currentText}</dd>
+                <dd className='personality__text'>{abilitiesText}</dd>
             </dl>
-
-            {/* テキストが流れている最中に表示するカーソル表現 */}
-            {/* {isTyping && (
-                <span className="typing-cursor absolute bottom-6 right-6 animate-pulse text-2xl text-amber-800">
-                    ▼
-                </span>
-            )} */}
         </div>
     );
 };

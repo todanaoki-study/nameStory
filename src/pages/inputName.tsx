@@ -4,58 +4,40 @@ import React, { useState } from "react";
 import Btn from "../components/btn";
 import Form from "../components/form";
 
+import type { CharacterResult } from "../types/character";
 
 interface InputNameProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
+    onSubmit: (value: string) => void;
+    onGenerated: (data: CharacterResult) => void;
 }
 
-interface CharacterResult {
-    health: number;
-    attack: number;
-    defense: number;
-    personality: string;
-    abilities: string;
-}
+const NameInputScreen: React.FC<InputNameProps> = ({ setGameState, onSubmit, onGenerated }) => {
+    const [input, SetInput] = useState("");
 
-const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
-    const handleBackToTitle = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const id = e.currentTarget.id;
-        switch (id) {
-            case "back":
-                setGameState("title");
-                break;
-            case "generate":
-                setGameState("generating");
-                break;
-            default:
-                setGameState("title");
-        }
-    };
 
-    const [name, setName] = useState("");
-    const [result, setResult] = useState<CharacterResult | null>(null);
+    //キャラクターの生成を依頼
+    const handleGenerating = async (inputValue: string) => {
 
-    const handleGenerate = async () => {
-        if (!name.trim()) {
-            alert("名前を入力してください。"); // UI上の通知に置き換えるべきだが、一時的に利用
+        if (!inputValue) {
+            console.log("inputValueが渡ってきていないです");
             return;
         }
 
-        setGameState("generating"); // ステータスを「生成中」に遷移
-
         try {
-            // サーバーのURL。ローカルで実行している場合は http://localhost:3000 を使用
-
-            //!ローカル
-            // const API_URL = "http://localhost:3000/generate";
-            //!本番
-            const API_URL = "/generate";
+            onSubmit(input);
+            setGameState("generating");
+            // !ローカル
+            const API_URL = "http://localhost:3000/generate";
+            // !本番
+            // const API_URL = "/generate";
 
             // fetchリクエスト
             const res = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name }),
+                //nameという値でsharedValueをサーバーに送信する。
+                body: JSON.stringify({ name: inputValue }),
             });
 
             if (!res.ok) {
@@ -66,18 +48,17 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
 
             /** @type {CharacterResult} */
             const data = await res.json();
-            console.log("RECEIVED DATA:", data);
+            console.log("生成されたデータ", data);
+            console.log(data.id);
 
-            setResult(data);
-            // setGameState("CharacterSheet"); // 生成完了後、キャラシート画面へ
+            onGenerated(data);
+            //全てが終わったらページを切り替え
+            setGameState("CharacterSheet");
 
         } catch (error) {
             console.error("Error during character generation:", error);
-            // エラーが発生したら入力画面に戻す
-            setGameState("inputName");
-            alert("キャラクターの生成中にエラーが発生しました。コンソールを確認してください。");
         }
-    };
+    }
 
     return (
         <div className="inputName">
@@ -86,29 +67,10 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState }) => {
                 <p className="inputName__advice">
                     例:田中太郎、ごんざれす田中など、思いついた名を自由に記入しよう！
                 </p>
-                <Form placeholder="名前を入力"></Form>
 
-                <input
-                    type="text"
-                    placeholder="テスト名前を入力"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+                <Form placeholder="名前を入力" type="text" value={input} onChange={SetInput}></Form>
 
-                <Btn onClick={handleBackToTitle} id="back">戻る(仮置き)</Btn>
-                <Btn onClick={handleGenerate} id="generate">キャラを生成</Btn>
-
-                {result && (
-                    <div>
-                        <h2>{name}</h2>
-                        <p>体力: {result.health}</p>
-                        <p>攻撃力: {result.attack}</p>
-                        <p>防御力: {result.defense}</p>
-                        <p>性格: {result.personality}</p>
-                        <p>能力: {result.abilities}</p>
-                    </div>
-                )}
-
+                <Btn id="generate" onClick={() => { handleGenerating(input) }}>キャラを生成</Btn>
             </div>
         </div >
     )
