@@ -131,7 +131,7 @@ $breakpoints: (
     width: fit-content;
     margin: 0 auto 30px;
     padding: 5px 10px;
-    background: $formColor;
+    background: #fff;
     text-align: center;
     border: 1px solid #000000;
     border-radius: 7px;
@@ -167,20 +167,19 @@ $breakpoints: (
 
 //*Personality
 .personality {
-    border: 1px solid $mainColor;
+    border: 3px solid #000;
     border-radius: 7px;
     display: block;
-    width: 100%;
     background: #fff;
     margin-bottom: 20px;
 
     &__content {
         @include mix-flex(flex-start, flex-start);
         gap: 10px;
-        padding: 10px;
+        padding: 15px;
 
         &:not(:last-child) {
-            border-bottom: 1px solid $mainColor;
+            border-bottom: 2px dashed #000;
         }
     }
 
@@ -200,7 +199,7 @@ $breakpoints: (
 //targetLog(図鑑詳細画面)
 
 body {
-    background: $baseColor;
+    background: #fff;
     font-family: "Yusei Magic", sans-serif;
 }
 
@@ -208,6 +207,9 @@ body {
 .startScreen {
     min-height: 100vh;
     position: relative;
+    background: #f1f1f1;
+
+
 
     &__inner {
         @include mix-inner();
@@ -215,8 +217,41 @@ body {
     }
 
     &__title {
-        width: fit-content;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+
+    &__logo {
+        width: 45%;
         margin: 0 auto 30px;
+    }
+
+    &__message {
+        position: relative;
+        display: block;
+        width: fit-content;
+        margin: 0 auto 120px;
+        text-align: center;
+        background: #ff9158;
+        border-radius: 30px;
+        padding: 16px;
+        font-weight: bold;
+        color: #fff;
+
+        &::before {
+            content: "";
+            /* borderで三角形を作る */
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #ff9158 transparent;
+            /* 配置する */
+            position: absolute;
+            top: -35%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 
     &__btnContainer {
@@ -254,6 +289,10 @@ body {
         font-size: 14px;
         margin-bottom: 45px;
     }
+
+    &__btn {
+        margin: 120px auto 0;
+    }
 }
 
 //*Generating
@@ -285,12 +324,8 @@ body {
 .myCharacterSheet {
     padding-top: 120px;
 
-    &__inner {
-        @include mix-inner();
-    }
-
     &__report {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 15px;
@@ -301,6 +336,13 @@ body {
         color: $attentionColor;
         font-weight: bold;
         text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__container {
+        display: block;
+        width: 65%;
+        margin: 0 auto;
     }
 
     &__basicInfo {
@@ -309,20 +351,33 @@ body {
     }
 
     &__content {
-        margin-top: 15px;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    &__img {
+        display: block;
+        aspect-ratio: 1/1;
+        border: 3px solid #000;
+        border-radius: 7px;
+        margin: 20px auto 60px;
     }
 
     &__list {
-        @include mix-flex(flex-start, flex-start);
+        @include mix-flex(center, flex-start);
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #909090;
     }
 
     &__tag {
         font-weight: bold;
-        margin-right: 15px;
+        margin-right: 20px;
+        font-size: 20px;
     }
 
     &__btn {
-        margin-top: 50px;
+        margin: 60px auto;
     }
 }
 
@@ -331,13 +386,14 @@ body {
     padding-top: 120px;
 
     &__inner {
-        @include mix-inner();
+        @include mix-inner(65%);
     }
 
     &__img {
         display: block;
         margin: 0 auto;
-        margin-bottom: 30px;
+        margin-bottom: 120px;
+        width: 70%;
     }
 
     &__btn {
@@ -476,3 +532,5 @@ body {
         margin-top: 20px;
     }
 }
+
+//keyFrame~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

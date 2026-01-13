@@ -70,7 +70,7 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState, onSubmit, onG
 
                 <Form placeholder="名前を入力" type="text" value={input} onChange={SetInput}></Form>
 
-                <Btn id="generate" onClick={() => { handleGenerating(input) }}>キャラを生成</Btn>
+                <Btn className="inputName__btn" id="generate" onClick={() => { handleGenerating(input) }}>キャラを生成</Btn>
             </div>
         </div >
     )

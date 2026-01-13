@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .btn {
   display: block;
   background-color: #00dada;
@@ -80,7 +81,7 @@
   width: fit-content;
   margin: 0 auto 30px;
   padding: 5px 10px;
-  background: #EFEFEF;
+  background: #fff;
   text-align: center;
   border: 1px solid #000000;
   border-radius: 7px;
@@ -113,10 +114,9 @@
 }
 
 .personality {
-  border: 1px solid #875647;
+  border: 3px solid #000;
   border-radius: 7px;
   display: block;
-  width: 100%;
   background: #fff;
   margin-bottom: 20px;
 }
@@ -126,10 +126,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px;
+  padding: 15px;
 }
 .personality__content:not(:last-child) {
-  border-bottom: 1px solid #875647;
+  border-bottom: 2px dashed #000;
 }
 .personality__title {
   font-size: 18px;
@@ -137,13 +137,14 @@
 }
 
 body {
-  background: #F8F4E6;
+  background: #fff;
   font-family: "Yusei Magic", sans-serif;
 }
 
 .startScreen {
   min-height: 100vh;
   position: relative;
+  background: #f1f1f1;
 }
 .startScreen__inner {
   width: 90%;
@@ -156,10 +157,40 @@ body {
   transform: translate(-50%, -50%);
 }
 .startScreen__title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.startScreen__logo {
+  width: 45%;
+  margin: 0 auto 30px;
+}
+.startScreen__message {
+  position: relative;
+  display: block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 auto 30px;
+  margin: 0 auto 120px;
+  text-align: center;
+  background: #ff9158;
+  border-radius: 30px;
+  padding: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.startScreen__message::before {
+  content: "";
+  /* borderで三角形を作る */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ff9158 transparent;
+  /* 配置する */
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .startScreen__btnContainer {
   display: flex;
@@ -200,6 +231,9 @@ body {
   font-size: 14px;
   margin-bottom: 45px;
 }
+.inputName__btn {
+  margin: 120px auto 0;
+}
 
 .generating__inner {
   padding-top: 120px;
@@ -226,14 +260,8 @@ body {
 .myCharacterSheet {
   padding-top: 120px;
 }
-.myCharacterSheet__inner {
-  width: 90%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .myCharacterSheet__report {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 15px;
@@ -243,6 +271,12 @@ body {
   color: #909090;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 40px;
+}
+.myCharacterSheet__container {
+  display: block;
+  width: 65%;
+  margin: 0 auto;
 }
 .myCharacterSheet__basicInfo {
   display: flex;
@@ -252,27 +286,39 @@ body {
   margin: 30px 0 50px;
 }
 .myCharacterSheet__content {
-  margin-top: 15px;
+  margin-left: 10px;
+  width: 100%;
+}
+.myCharacterSheet__img {
+  display: block;
+  aspect-ratio: 1/1;
+  border: 3px solid #000;
+  border-radius: 7px;
+  margin: 20px auto 60px;
 }
 .myCharacterSheet__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #909090;
 }
 .myCharacterSheet__tag {
   font-weight: bold;
-  margin-right: 15px;
+  margin-right: 20px;
+  font-size: 20px;
 }
 .myCharacterSheet__btn {
-  margin-top: 50px;
+  margin: 60px auto;
 }
 
 .story {
   padding-top: 120px;
 }
 .story__inner {
-  width: 90%;
+  width: 65%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -280,7 +326,8 @@ body {
 .story__img {
   display: block;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 120px;
+  width: 70%;
 }
 .story__btn {
   margin-top: 60px;
