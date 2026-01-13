@@ -127,9 +127,9 @@ const App: React.FC = () => {
 
   return (
     <div className='container' id='container'>
-      {/* <Header></Header> */}
+      <Header></Header>
       {renderScreen()}
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   )
 }
