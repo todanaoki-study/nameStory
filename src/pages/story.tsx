@@ -25,17 +25,17 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory }) => {
     }
 
     //画像の相対パス
-    const imgUrls = [
-        "../assets/user/buffalo.png",
-        "../assets/user/cow.png",
-        "../assets/user/crocodile.png",
-        "../assets/user/flamingo.png",
-        "../assets/user/fox.png",
-        "../assets/user/hedgehog.png",
-        "../assets/user/horse.png",
-        "../assets/user/rabbit.png",
-        "../assets/user/sheep.png",
-    ]
+    // const imgUrls = [
+    //     "../assets/user/buffalo.png",
+    //     "../assets/user/cow.png",
+    //     "../assets/user/crocodile.png",
+    //     "../assets/user/flamingo.png",
+    //     "../assets/user/fox.png",
+    //     "../assets/user/hedgehog.png",
+    //     "../assets/user/horse.png",
+    //     "../assets/user/rabbit.png",
+    //     "../assets/user/sheep.png",
+    // ]
 
     //今どのステップかを親に知らせる
     const handleStoryStep = () => {

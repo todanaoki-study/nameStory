@@ -1,7 +1,7 @@
 import PhotoFrame from "../components/photoFrame";
 import Btn from "../components/btn";
 
-import type { StoryData } from "../types/story";
+// import type { StoryData } from "../types/story";
 
 interface RecordProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;

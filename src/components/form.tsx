@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 interface FormProps {
     type?: "password" | "email" | "number" | "text";

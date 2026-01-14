@@ -9,12 +9,12 @@ import MyCharacterSheet from './pages/MyCharacterSheet.tsx';
 import Story from "./pages/story.tsx";
 import Result from "./pages/result.tsx";
 import Record from './pages/record.tsx';
-import TargetLog from './pages/targetLog.tsx';
+// import TargetLog from './pages/targetLog.tsx';
 
 //必要コンポーネントのインポート
 // import Btn from './components/btn.tsx'
-import Header from './components/header.tsx';
-import Footer from './components/footer.tsx';
+// import Header from './components/header.tsx';
+// import Footer from './components/footer.tsx';
 
 //必要な定義型をインポート
 import type { CharacterResult } from "./types/character.ts";
@@ -118,8 +118,7 @@ const App: React.FC = () => {
           setGameState={setGameState}
         />
 
-      case "targetLog":
-        return <TargetLog setGameState={setGameState} />
+
 
       default: return <StartScreen setGameState={setGameState} />;
     }

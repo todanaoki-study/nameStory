@@ -2,7 +2,7 @@ import React from 'react';
 import PhotoFrame from '../components/photoFrame';
 import Btn from "../components/btn";
 import StoryBox from '../components/storyBox';
-import Personality from '../components/personality';
+// import Personality from '../components/personality';
 
 interface InputNameProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
@@ -27,7 +27,7 @@ const TargetLog: React.FC<InputNameProps> = ({ setGameState }) => {
                             <StoryBox className='targetLog__storyBox' currentText='ストーリー文言'></StoryBox>
                             <p className='targetLog__prompt'>クリックでこの人物のストーリーを見る</p>
 
-                            <Personality className='targetLog__personality' currentText='サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル'></Personality>
+                            {/* <Personality className='targetLog__personality' currentText='サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル'></Personality> */}
                         </div>
                     </div>
                 </div>
