@@ -2,15 +2,15 @@ import Btn from "../components/btn";
 
 import type { StoryData } from '../types/story';
 
-import playerImg1 from "../assets/user/buffalo.png";
-import playerImg2 from "../assets/user/cow.png";
-import playerImg3 from "../assets/user/crocodile.png";
-import playerImg4 from "../assets/user/flamingo.png";
-import playerImg5 from "../assets/user/fox.png";
-import playerImg6 from "../assets/user/hedgehog.png";
-import playerImg7 from "../assets/user/horse.png";
-import playerImg8 from "../assets/user/rabbit.png";
-import playerImg9 from "../assets/user/sheep.png";
+// import playerImg1 from "../assets/user/buffalo.png";
+// import playerImg2 from "../assets/user/cow.png";
+// import playerImg3 from "../assets/user/crocodile.png";
+// import playerImg4 from "../assets/user/flamingo.png";
+// import playerImg5 from "../assets/user/fox.png";
+// import playerImg6 from "../assets/user/hedgehog.png";
+// import playerImg7 from "../assets/user/horse.png";
+// import playerImg8 from "../assets/user/rabbit.png";
+// import playerImg9 from "../assets/user/sheep.png";
 
 interface StoryProps {
     story: StoryData | null;
@@ -69,12 +69,17 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory }) => {
         }
     };
 
+
     return (
         <div className="story">
             <div className="story__inner">
                 <img className="story__img" src="./src/assets/logo/mascot.png" alt="" />
 
-                <p>{renderStoryText()}</p>
+                <div className="story__content">
+                    <p>{renderStoryText()}</p>
+
+                </div>
+
                 <Btn className="story__btn" onClick={() => handleStoryStep()}>次へ</Btn>
             </div>
         </div>

@@ -201,6 +201,31 @@ $breakpoints: (
 body {
     background: #fff;
     font-family: "Yusei Magic", sans-serif;
+    background-image:
+        repeating-linear-gradient(to bottom,
+            transparent 25px,
+            rgba(0, 0, 0, 0.04) 26px, rgba(0, 0, 0, 0.04) 26px,
+            transparent 27px, transparent 51px,
+            rgba(0, 0, 0, 0.04) 52px, rgba(0, 0, 0, 0.04) 52px,
+            transparent 53px, transparent 77px,
+            rgba(0, 0, 0, 0.04) 78px, rgba(0, 0, 0, 0.04) 78px,
+            transparent 79px, transparent 103px,
+            rgba(0, 0, 0, 0.04) 104px, rgba(0, 0, 0, 0.04) 104px,
+            transparent 105px, transparent 129px,
+            rgba(0, 0, 0, 0.04) 130px, rgba(0, 0, 0, 0.04) 130px),
+
+        repeating-linear-gradient(to right,
+            transparent 25px,
+            rgba(0, 0, 0, 0.04) 26px, rgba(0, 0, 0, 0.04) 26px,
+            transparent 27px, transparent 51px,
+            rgba(0, 0, 0, 0.04) 52px, rgba(0, 0, 0, 0.04) 52px,
+            transparent 53px, transparent 77px,
+            rgba(0, 0, 0, 0.04) 78px, rgba(0, 0, 0, 0.04) 78px,
+            transparent 79px, transparent 103px,
+            rgba(0, 0, 0, 0.04) 104px, rgba(0, 0, 0, 0.04) 104px,
+            transparent 105px, transparent 129px,
+            rgba(0, 0, 0, 0.04) 130px, rgba(0, 0, 0, 0.04) 130px);
+
 }
 
 //*startScreen
@@ -361,6 +386,7 @@ body {
         border: 3px solid #000;
         border-radius: 7px;
         margin: 20px auto 60px;
+        background: #fff;
     }
 
     &__list {
@@ -392,12 +418,21 @@ body {
     &__img {
         display: block;
         margin: 0 auto;
-        margin-bottom: 120px;
+        margin-bottom: 60px;
         width: 70%;
+    }
+
+    &__content {
+        display: block;
+        background: #fff;
+        padding: 20px;
+        border: 2px solid #000;
+        border-radius: 7px;
     }
 
     &__btn {
         margin-top: 60px;
+        margin-left: auto;
     }
 }
 
