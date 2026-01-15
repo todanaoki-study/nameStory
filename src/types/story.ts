@@ -5,4 +5,7 @@ export interface StoryData {
     twist?: string;        // 転
     conclusion?: string;   // 結
     title?: string;// タイトルデータ
+    answer?: string;
+    storyType?: string;
+    worldTone?: string;
 }

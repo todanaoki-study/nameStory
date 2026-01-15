@@ -74,6 +74,7 @@ const App: React.FC = () => {
       console.log(data.introduction);
 
       setStoryData(data);
+      console.log(data);
       setGameState("story");
     }
     catch (error) {
@@ -108,7 +109,10 @@ const App: React.FC = () => {
       case "story":
         return <Story story={storyData}
           setStoryStep={setStoryStep}
-          nowStory={storyStep} />
+          nowStory={storyStep}
+          setStoryData={setStoryData}
+          setGameState={setGameState}
+        />
 
       case "result":
         return <Result setGameState={setGameState} story={storyData} data={characterData} />

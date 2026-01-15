@@ -15,7 +15,6 @@ interface InputNameProps {
 const NameInputScreen: React.FC<InputNameProps> = ({ setGameState, onSubmit, onGenerated }) => {
     const [input, SetInput] = useState("");
 
-
     //キャラクターの生成を依頼
     const handleGenerating = async (inputValue: string) => {
 

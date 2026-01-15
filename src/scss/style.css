@@ -256,6 +256,7 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
+  max-width: 300px;
 }
 
 .myCharacterSheet {
@@ -337,6 +338,23 @@ body {
   padding: 20px;
   border: 2px solid #000;
   border-radius: 7px;
+}
+.story__form {
+  display: block;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 20px;
+  margin-top: 60px;
+  background: #fff;
+}
+.story__input {
+  width: 100%;
+}
+.story__input::-moz-placeholder {
+  opacity: 0.5;
+}
+.story__input::placeholder {
+  opacity: 0.5;
 }
 .story__btn {
   margin-top: 60px;

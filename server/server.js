@@ -106,26 +106,37 @@ app.post('/generate', async (req, res) => {
 
 // ストーリー生成のエンドポイントの作成 -起
 app.post("/introduction", async (req, res) => {
-    console.log("処理には入った");
-    console.log(`サーバー側のデータの値req.body${req.body}`);
-    console.log(`サーバー側のデータの値req.body.character${req.body}`);
-    // ログはサーバーを起動しているターミナルに表示されます（ここが確認ポイント）
     console.log(`[LOG] リクエストを受信しました。データ: ${req.body.character}`);
 
-    const { character } = req.body; // フロントエンドから送られてきた名前を受け取る
+    //フロントからデータを受け取る
+    const { character } = req.body;
 
     if (!character) {
         return res.status(400).json({ error: "データが提供されていません。" });
     }
 
+    //ストーリーの基盤を生成
+    const typeList =
+        ["ファンタジー", "フィクション", "ミステリー", "ホラー", "日常", "アクション", "恋愛", "昔話"];
+    const toneList =
+        ["受け手が「なぜそうなる？」と言う疑問が笑いになるような理由も脈絡もないストーリー",
+            "本筋に関係のない情報を真面目なトーンで挿入したシュールなストーリー",
+        ];
+    const storyType = typeList[Math.floor(Math.random(typeList.length))];
+    const worldTone = toneList[Math.floor(Math.random(toneList.length))];
+
     const prompt = `
-       今から面白ストーリーを生成しもらいます。
+       今から以下の条件でストーリーを生成してください。
+
+       ストーリータイプは${storyType}。
+       ストーリーの全体の印象は${worldTone}。
+
   ストーリーでは以下の名前と特徴を持つキャラクターが主人公のため、
-  この特徴を活かせるようなストーリー展開にしてください。
+  この特徴を活かせるようなストーリー展開にすること。
   名前: ${character.name} 性格: ${character.personality} 特徴${character.abilities}
 
   また、今回は起承転結の「起」の部分のみ出力してください。
-  「起」のストーリーは200文字程度でお願いします。
+  「起」のストーリーは150文字程度でお願いします。
 
   出力形式: {"introduction":起}
     `;
@@ -135,8 +146,10 @@ app.post("/introduction", async (req, res) => {
         type: Type.OBJECT,
         properties: {
             introduction: { type: Type.STRING, description: "ストーリーの起承転結の起を200文字程度で出力" },
+            storyType: { type: Type.STRING, description: "ストーリータイプ" },
+            worldTone: { type: Type.STRING, description: "世界観" }
         },
-        required: ["introduction"],
+        required: ["introduction", "storyType", "worldTone"],
     };
 
     try {
@@ -168,9 +181,6 @@ app.post("/introduction", async (req, res) => {
 
 // ストーリー生成のエンドポイントの作成 -承
 app.post("/development", async (req, res) => {
-    console.log("処理には入った");
-    console.log(`サーバー側のデータの値req.body${req.body}`);
-    console.log(`サーバー側のデータの値req.body.character${req.body}`);
     // ログはサーバーを起動しているターミナルに表示されます（ここが確認ポイント）
     console.log(`[LOG] リクエストを受信しました。データ: ${req.body.character}`);
 
@@ -182,18 +192,18 @@ app.post("/development", async (req, res) => {
     }
 
     const prompt = `
-       今から面白ストーリーを生成しもらいます。
-  ストーリーでは以下の名前と特徴を持つキャラクターが主人公のため、
-  この特徴を活かせるようなストーリー展開にしてください。
-  名前: ${character.name} 性格: ${character.personality} 特徴${character.abilities}
+       今から以下のストーリーを元に起承転結の「承」の部分を生成してもらいます。
+       ${story.introduction}
 
-  また、今回は起承転結の「承」の部分のみ出力してください。
-  「起」のストーリーは以下の通りです。
-  ${story.introduction}
+  また、今回生成するストーリーの世界観は以下のとおりです。
+  世界観:${story.worldTone}、
+  タイプ:${story.storyType}。
 
-  この「起」の情報を基
-  「承」のストーリーを200文字程度でお願いします。
+  加えて、文末は聞き手に選択肢を提示したり、追加の入力を促したりして、
+ 次の展開を分岐させるような形で終わらせてください。
+ 例:「あなたはAかBどちらを選ぶ？」など。
 
+ 今回出力する「承」のストーリーは150文字程度で出力してください。
 
   出力形式: {"development":承}
     `;
@@ -236,9 +246,6 @@ app.post("/development", async (req, res) => {
 
 //ストーリー生成のエンドポイントの作成 -転
 app.post("/twist", async (req, res) => {
-    console.log("処理には入った");
-    console.log(`サーバー側のデータの値req.body${req.body}`);
-    console.log(`サーバー側のデータの値req.body.character${req.body}`);
     // ログはサーバーを起動しているターミナルに表示されます（ここが確認ポイント）
     console.log(`[LOG] リクエストを受信しました。データ: ${req.body.character}`);
 
@@ -249,22 +256,20 @@ app.post("/twist", async (req, res) => {
         return res.status(400).json({ error: "データが提供されていません。" });
     }
 
+    console.log(`答え${story.answer}`);
+
     const prompt = `
-       今から面白ストーリーを生成しもらいます。
-  ストーリーでは以下の名前と特徴を持つキャラクターが主人公のため、
-  この特徴を活かせるようなストーリー展開にしてください。
-  名前: ${character.name} 性格: ${character.personality} 特徴${character.abilities}
+    今から以下のストーリーを元に起承転結の「転」の部分を考えてもらいます。
+    「${story.development}」
+    また、プレイヤーは先のストーリーで以下の選択をしました。
+    「${story.answer}」
+    ストーリーの世界観は以下のとおりです。
+    世界観:${story.worldTone}、
+    タイプ:${story.storyType}。
 
-  また、今回は起承転結の「転」の部分のみ出力してください。
-  「起」と「承」のストーリーは以下の通りです。
-  「${story.introduction}」
-  「${story.development}」
+    今回出力する「転」のストーリーは200文字程度で出力してください。
 
-  この「起」と「承」の情報を基に
-  「転」のストーリーを200文字程度でお願いします。
-
-
-  出力形式: {"twist":転}
+    出力形式: {"twist":転}
     `;
 
     // 修正点2: レスポンススキーマを定義し、JSON出力を強制する
@@ -319,22 +324,15 @@ app.post("/conclusion", async (req, res) => {
     }
 
     const prompt = `
-       今から面白ストーリーを生成しもらいます。
-  ストーリーでは以下の名前と特徴を持つキャラクターが主人公のため、
-  この特徴を活かせるようなストーリー展開にしてください。
-  名前: ${character.name} 性格: ${character.personality} 特徴${character.abilities}
+       今から以下のストーリーを元に起承転結の「結」の部分を考えてもらいます。
+    「${story.twist}」
 
-  また、今回は起承転結の「結」の部分のみ出力してください。
-  「起」と「承」と「転」のストーリーは以下の通りです。
-  「${story.introduction}」
-  「${story.development}」
-  「${story.twist}」
+    またストーリーの世界観は以下のとおりです。
+    世界観:${story.worldTone}、
+    タイプ:${story.storyType}。
 
-  この「起」と「承」と「転」の情報を基に
-  「結」のストーリーを200文字程度でお願いします。
-
-
-  出力形式: {"conclusion":結}
+    今回出力する「結」のストーリーは150文字程度で出力してください。
+    出力形式: {"conclusion":結}
     `;
 
     // 修正点2: レスポンススキーマを定義し、JSON出力を強制する
@@ -360,8 +358,6 @@ app.post("/conclusion", async (req, res) => {
         const jsonText = response.text.trim();
         const data = JSON.parse(jsonText);
         console.log("[LOG] Geminiから生成されたJSONデータ:", data);
-
-        // ブラウザにJSONデータを送信
 
         //フロント側にデータを返す。
         res.json({

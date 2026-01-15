@@ -55,7 +55,6 @@ const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
         }
     }
 
-
     return (
         <section className="startScreen">
             <div className="startScreen__inner">
