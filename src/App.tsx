@@ -53,7 +53,7 @@ const App: React.FC = () => {
       // !ローカル
       // const API_URL = `http://localhost:3000/${storyStep}`;
       // !本番
-      const API_URL = `/api/${storyStep}`;
+      const API_URL = `/${storyStep}`;
 
       const res = await fetch(API_URL, {
         method: "POST",
