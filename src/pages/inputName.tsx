@@ -27,9 +27,9 @@ const NameInputScreen: React.FC<InputNameProps> = ({ setGameState, onSubmit, onG
             onSubmit(input);
             setGameState("generating");
             // !ローカル
-            const API_URL = "http://localhost:3000/generate";
+            // const API_URL = "http://localhost:3000/generate";
             // !本番
-            // const API_URL = "/generate";
+            const API_URL = "/generate";
 
             // fetchリクエスト
             const res = await fetch(API_URL, {

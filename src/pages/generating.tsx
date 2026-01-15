@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 //api通信中に表示するページ。
 interface GeneratingProps {
     sharedValue: string;

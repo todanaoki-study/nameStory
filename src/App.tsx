@@ -51,9 +51,9 @@ const App: React.FC = () => {
       //データが返ってくるまで、generatingページへ。
       setGameState("generating");
       // !ローカル
-      const API_URL = `http://localhost:3000/${storyStep}`;
+      // const API_URL = `http://localhost:3000/${storyStep}`;
       // !本番
-      // const API_URL = `/introduction${storyStep}`;
+      const API_URL = `/${storyStep}`;
 
       const res = await fetch(API_URL, {
         method: "POST",

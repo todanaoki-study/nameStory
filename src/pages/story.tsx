@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Btn from "../components/btn";
 
 import type { StoryData } from '../types/story';
