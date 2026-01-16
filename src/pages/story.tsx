@@ -20,6 +20,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
     }
 
     const [userInput, setUserInput] = useState("");
+    let btnText = "次へ";
 
     //今どのステップかを親に知らせる
     const handleStoryStep = () => {
@@ -34,6 +35,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
             setStoryStep("twist");
         }
         else if (nowStory == "twist") {
+            btnText = "タイトルへ"
             setStoryStep("conclusion");
         }
         else if (nowStory == "conclusion") {
@@ -80,7 +82,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
                     </form>
                 )}
 
-                <Btn className="story__btn" onClick={() => handleStoryStep()}>次へ</Btn>
+                <Btn className="story__btn" onClick={() => handleStoryStep()}>{btnText}</Btn>
             </div>
         </div>
     );
