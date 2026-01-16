@@ -4,16 +4,16 @@ import Personality from "../components/personality";
 
 import type { CharacterResult } from '../types/character';
 
-import user1 from "./src/assets/user/buffalo.png";
-import user2 from "./src/assets/user/cow.png";
-import user3 from "./src/assets/user/crocodile.png";
-import user4 from "./src/assets/user/flamingo.png";
-import user5 from "./src/assets/user/fox.png";
-import user6 from "./src/assets/user/hedgehog.png";
-import user7 from "./src/assets/user/horse.png";
-import user8 from "./src/assets/user/pig.png";
-import user9 from "./src/assets/user/rabbit.png";
-import user10 from "./src/assets/user/sheep.png";
+import user1 from "../assets/user/buffalo.png";
+import user2 from "../assets/user/cow.png";
+import user3 from "../assets/user/crocodile.png";
+import user4 from "../assets/user/flamingo.png";
+import user5 from "../assets/user/fox.png";
+import user6 from "../assets/user/hedgehog.png";
+import user7 from "../assets/user/horse.png";
+import user8 from "../assets/user/pig.png";
+import user9 from "../assets/user/rabbit.png";
+import user10 from "../assets/user/sheep.png";
 
 interface MyCharacterSheetProps {
     data: CharacterResult | null;
