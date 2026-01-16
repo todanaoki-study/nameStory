@@ -29,6 +29,27 @@
             ]
         },
         {
+            "src": "/development",
+            "dest": "server/server.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/twist",
+            "dest": "server/server.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/conclusion",
+            "dest": "server/server.js",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
             "src": "/(.*)",
             "dest": "/dist/$1"
         }
