@@ -3,15 +3,7 @@ import Btn from "../components/btn";
 
 import type { StoryData } from '../types/story';
 
-// import playerImg1 from "../assets/user/buffalo.png";
-// import playerImg2 from "../assets/user/cow.png";
-// import playerImg3 from "../assets/user/crocodile.png";
-// import playerImg4 from "../assets/user/flamingo.png";
-// import playerImg5 from "../assets/user/fox.png";
-// import playerImg6 from "../assets/user/hedgehog.png";
-// import playerImg7 from "../assets/user/horse.png";
-// import playerImg8 from "../assets/user/rabbit.png";
-// import playerImg9 from "../assets/user/sheep.png";
+import mascot from "../assets/item/mascotAnimation.gif";
 
 interface StoryProps {
     story: StoryData | null;
