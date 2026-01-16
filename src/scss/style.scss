@@ -342,8 +342,7 @@ body {
         width: 45%;
         max-width: 350px;
 
-        margin: 0 auto;
-        margin-top: 30px;
+        margin: 30px auto 60px;
     }
 }
 
@@ -410,6 +409,7 @@ body {
         font-size: 12px;
         font-weight: bold;
         color: #000;
+        text-align: center;
     }
 
     &__btn {
@@ -427,8 +427,8 @@ body {
 
     &__img {
         display: block;
-        margin: 0 auto 110px;
-        margin-bottom: 60px;
+        margin: 0 auto;
+        margin-bottom: 120px;
         width: 70%;
         max-width: 350px;
     }
@@ -445,16 +445,14 @@ body {
     &__step {
         position: absolute;
         top: -33px;
-        left: 0;
+        left: -2px;
         background: #fff;
         border: 2px solid #000;
         border-radius: 7px;
         display: block;
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-right: 5px;
-
+        padding: 5px 5px 5px 20px;
+        width: 100px;
+        z-index: -1;
     }
 
     &__form {
