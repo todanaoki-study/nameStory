@@ -427,7 +427,7 @@ body {
 
     &__img {
         display: block;
-        margin: 0 auto;
+        margin: 0 auto 110px;
         margin-bottom: 60px;
         width: 70%;
         max-width: 350px;
@@ -444,13 +444,17 @@ body {
 
     &__step {
         position: absolute;
-        top: -50px;
+        top: -33px;
         left: 0;
-        font-size: 18px;
         background: #fff;
         border: 2px solid #000;
-        border-radius: 50%;
+        border-radius: 7px;
         display: block;
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+
     }
 
     &__form {
