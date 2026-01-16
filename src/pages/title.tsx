@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Btn from "../components/btn";
 
+//画像ルート
+import mascot from "../assets/item/mascotAnimation.gif";
 
 interface StartScreenProps {
     setGameState: (state: 'title' | 'inputName' | "generating" | "CharacterSheet" | 'story' | 'result' | "record" | "targetLog") => void;
@@ -60,7 +62,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ setGameState }) => {
             <div className="startScreen__inner">
                 <p className="startScreen__title">変な人生を始めましょう...</p>
                 <h2 className="startScreen__logo">
-                    <img src="./src/assets/logo/mascot.png" alt="ロゴ画像。ネムストというゲーム名の背景に魔導書や歯車、巻物が置いてある。" />
+                    <img src={mascot} alt="ロゴ画像。ネムストというゲーム名の背景に魔導書や歯車、巻物が置いてある。" />
                 </h2>
 
                 {/* 吹き出し部分 */}
