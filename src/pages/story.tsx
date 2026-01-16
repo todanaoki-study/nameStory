@@ -3,7 +3,7 @@ import Btn from "../components/btn";
 
 import type { StoryData } from '../types/story';
 
-import mascot from "../assets/item/mascotAnimation.gif";
+import mascotImg from "../assets/item/mascotAnimation.gif";
 
 interface StoryProps {
     story: StoryData | null;
@@ -60,7 +60,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
     return (
         <div className="story">
             <div className="story__inner">
-                <img className="story__img" src={mascot} alt="" />
+                <img className="story__img" src={mascotImg} alt="" />
 
                 <div className="story__content">
                     <p>{renderStoryText()}</p>
