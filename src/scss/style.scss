@@ -234,8 +234,6 @@ body {
     position: relative;
     background: #f1f1f1;
 
-
-
     &__inner {
         @include mix-inner();
         @include mix-centerPos();
@@ -249,6 +247,7 @@ body {
     }
 
     &__logo {
+        max-width: 350px;
         width: 45%;
         margin: 0 auto 30px;
     }
@@ -340,9 +339,11 @@ body {
 
     &__img {
         display: block;
+        width: 45%;
+        max-width: 350px;
+
         margin: 0 auto;
         margin-top: 30px;
-        max-width: 300px;
     }
 }
 
@@ -383,6 +384,8 @@ body {
 
     &__img {
         display: block;
+        width: 45%;
+        max-width: 350px;
         aspect-ratio: 1/1;
         border: 3px solid #000;
         border-radius: 7px;

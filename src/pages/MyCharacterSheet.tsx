@@ -4,6 +4,17 @@ import Personality from "../components/personality";
 
 import type { CharacterResult } from '../types/character';
 
+import user1 from "./src/assets/user/buffalo.png";
+import user2 from "./src/assets/user/cow.png";
+import user3 from "./src/assets/user/crocodile.png";
+import user4 from "./src/assets/user/flamingo.png";
+import user5 from "./src/assets/user/fox.png";
+import user6 from "./src/assets/user/hedgehog.png";
+import user7 from "./src/assets/user/horse.png";
+import user8 from "./src/assets/user/pig.png";
+import user9 from "./src/assets/user/rabbit.png";
+import user10 from "./src/assets/user/sheep.png";
+
 interface MyCharacterSheetProps {
     data: CharacterResult | null;
     setStoryStep: (state: "introduction") => void;
@@ -27,16 +38,16 @@ const MyCharacterSheet: React.FC<MyCharacterSheetProps> = ({ data, setStoryStep 
     ];
 
     const imgUrl = [
-        "./src/assets/user/buffalo.png",
-        "./src/assets/user/cow.png",
-        "./src/assets/user/crocodile.png",
-        "./src/assets/user/flamingo.png",
-        "./src/assets/user/fox.png",
-        "./src/assets/user/hedgehog.png",
-        "./src/assets/user/horse.png",
-        "./src/assets/user/pig.png",
-        "./src/assets/user/rabbit.png",
-        "./src/assets/user/sheep.png",
+        user1,
+        user2,
+        user3,
+        user4,
+        user5,
+        user6,
+        user7,
+        user8,
+        user9,
+        user10,
     ]
 
     const wordNum = Math.floor(Math.random() * wordList.length);

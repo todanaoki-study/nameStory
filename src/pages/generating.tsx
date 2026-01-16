@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import generatingImg from "../assets/item/openAnimation.gif"
+
 //api通信中に表示するページ。
 interface GeneratingProps {
     sharedValue: string;
@@ -40,7 +42,7 @@ function Generating({ sharedValue }: GeneratingProps) {
             <div className="generating__inner">
                 <h2 className="generating__title">生成中</h2>
                 <p className='generating__overview'>{sharedValue}</p>
-                <img className='generating__img' src="./src/assets/item/mascotAnimation.gif" alt="" />
+                <img className='generating__img' src={generatingImg} alt="" />
                 <div className={`startScreen__message ${isVisible ? 'is-visible' : ''}`}>
                     {message}
                 </div>

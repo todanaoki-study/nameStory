@@ -164,6 +164,7 @@ body {
   margin-bottom: 100px;
 }
 .startScreen__logo {
+  max-width: 350px;
   width: 45%;
   margin: 0 auto 30px;
 }
@@ -254,9 +255,10 @@ body {
 }
 .generating__img {
   display: block;
+  width: 45%;
+  max-width: 350px;
   margin: 0 auto;
   margin-top: 30px;
-  max-width: 300px;
 }
 
 .myCharacterSheet {
@@ -293,6 +295,8 @@ body {
 }
 .myCharacterSheet__img {
   display: block;
+  width: 45%;
+  max-width: 350px;
   aspect-ratio: 1/1;
   border: 3px solid #000;
   border-radius: 7px;
