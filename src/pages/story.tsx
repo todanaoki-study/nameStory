@@ -60,7 +60,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
     return (
         <div className="story">
             <div className="story__inner">
-                <img className="story__img" src="./src/assets/logo/mascot.png" alt="" />
+                <img className="story__img" src={mascot} alt="" />
 
                 <div className="story__content">
                     <p>{renderStoryText()}</p>
