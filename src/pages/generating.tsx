@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import generatingImg from "../assets/item/openAnimation.gif"
+import generatingImg from "../assets/item/mascotAnimation.gif"
 
 //api通信中に表示するページ。
 interface GeneratingProps {

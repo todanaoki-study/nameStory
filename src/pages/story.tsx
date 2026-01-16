@@ -30,6 +30,21 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
         }
     };
 
+    const getStepText = () => {
+        switch (nowStory) {
+            case "introduction":
+                return "起";
+            case "development":
+                return "承";
+            case "twist":
+                return "転"
+            case "conclusion":
+                return "結";
+            default:
+                return "";
+        }
+    };
+
     //今どのステップかを親に知らせる
     const handleStoryStep = () => {
         if (nowStory == "introduction") {
@@ -73,6 +88,7 @@ const Story: React.FC<StoryProps> = ({ story, setStoryStep, nowStory, setStoryDa
 
                 <div className="story__content">
                     <p>{renderStoryText()}</p>
+                    <span className='story__step'>{getStepText()}</span>
                 </div>
 
                 {/* 分岐が発生したら、フォームを生成 */}

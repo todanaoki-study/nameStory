@@ -317,6 +317,11 @@ body {
   margin-right: 20px;
   font-size: 20px;
 }
+.myCharacterSheet__caption {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
 .myCharacterSheet__btn {
   margin: 60px auto;
 }
@@ -343,6 +348,17 @@ body {
   padding: 20px;
   border: 2px solid #000;
   border-radius: 7px;
+  position: relative;
+}
+.story__step {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  font-size: 18px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: block;
 }
 .story__form {
   display: block;

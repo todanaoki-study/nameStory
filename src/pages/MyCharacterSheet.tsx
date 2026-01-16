@@ -78,6 +78,7 @@ const MyCharacterSheet: React.FC<MyCharacterSheetProps> = ({ data, setStoryStep 
                     </div>
                 </div>
                 <Personality personalityText={data.personality} abilitiesText={data.abilities}></Personality>
+                <p className="myCharacterSheet__caption">ボタンを押すと起承転結の4構成でストーリーが作られます</p>
                 <Btn className='myCharacterSheet__btn' onClick={() => setStoryStep("introduction")}>ストーリーを開始する</Btn>
             </div>
         </div >
